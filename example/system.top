@@ -1,0 +1,25 @@
+; Include forcefield parameters
+#include "charmm36-jul2021.ff/forcefield.itp"
+
+; Include water topology
+#include "charmm36-jul2021.ff/tip3p.itp"
+
+#ifdef POSRES_WATER
+; Position restraint for each water oxygen
+[ position_restraints ]
+;  i funct       fcx        fcy        fcz
+   1    1       1000       1000       1000
+#endif
+
+; Include topology for ions
+#include "charmm36-jul2021.ff/ions.itp"
+#include "Z33.itp"
+
+[ system ]
+; Name
+Built with Packmol in water
+
+[ molecules ]
+; Compound        #mols
+Z33                 1
+SOL              9084
